@@ -8,6 +8,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css" />
+  <script>
+    if (window.location.protocol === 'http:' && !['localhost', '127.0.0.1'].includes(window.location.hostname)) {
+      window.location.replace('https://136-111-157-64.sslip.io' + (window.location.pathname || '') + (window.location.search || ''));
+    }
+  </script>
 </head>
 <body>
   <div class="gemini-app" id="geminiApp">

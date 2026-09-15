@@ -26,6 +26,19 @@ if env_path.exists():
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
+# Secret Manager에서 GEMINI_API_KEY 자동 조회 시도 (미설정 시)
+if not GEMINI_API_KEY:
+    try:
+        from google.cloud import secretmanager
+        sm_client = secretmanager.SecretManagerServiceClient()
+        secret_name = "projects/902882112756/secrets/GEMINI_API_KEY/versions/latest"
+        response = sm_client.access_secret_version(request={"name": secret_name})
+        GEMINI_API_KEY = response.payload.data.decode("UTF-8").strip()
+        os.environ["GEMINI_API_KEY"] = GEMINI_API_KEY
+        print(f"[INFO] Successfully loaded GEMINI_API_KEY from Secret Manager: {secret_name}")
+    except Exception as sm_err:
+        print(f"[WARN] Failed to fetch secret from Secret Manager: {sm_err}")
+
 # Google GenAI Client 초기화
 client = genai.Client(
     api_key=GEMINI_API_KEY,
@@ -179,12 +192,13 @@ if public_dir.exists():
     app.mount("/", StaticFiles(directory=str(public_dir), html=True), name="static")
 
 if __name__ == "__main__":
+    host = os.environ.get("HOST", "0.0.0.0")
     port = int(os.environ.get("PORT", "3000"))
     print("=========================================")
     print(" Gemini Python GenAI Chatbot Server")
-    print(f" URL: http://127.0.0.1:{port}")
+    print(f" URL: http://{host}:{port}")
     print(" Engine: google-genai client.interactions")
     print(" Tools: code_execution, google_search, url_context")
     print(f" API Key Loaded: {bool(GEMINI_API_KEY)}")
     print("=========================================")
-    uvicorn.run(app, host="127.0.0.1", port=port, log_level="info")
+    uvicorn.run(app, host=host, port=port, log_level="info")

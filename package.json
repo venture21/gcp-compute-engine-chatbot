@@ -1,0 +1,19 @@
+{
+  "name": "gcp-compute-engine-chatbot",
+  "version": "1.0.0",
+  "description": "Google Gemini 3.8 Flash & 3.7 Flash 한국어 웹 챗봇",
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "python3 server.py",
+    "start:node": "node server.mjs"
+  },
+  "keywords": [
+    "gemini",
+    "gemini-3.8-flash",
+    "gemini-3.7-flash",
+    "chatbot"
+  ],
+  "author": "park",
+  "license": "ISC"
+}

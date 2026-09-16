@@ -1,0 +1,65 @@
+Tool: built-in image_gen.imagegen (redesign)
+Reference: nginx-roles.png
+Final image: nginx-roles-v2.png
+
+Redesign the attached Nginx educational infographic to be MUCH CLEANER, calmer, more professional, and less crowded. This is a full visual redesign of the same factual content, not a small retouch. Keep Korean language and the six roles, but replace the heavy cartoon style with minimalist editorial information design.
+
+Output landscape 1536x1024 PNG. Pure white background. Restrained palette: dark navy #102340 text, muted slate #65758A secondary text, teal #147C78 as the ONE accent. Use elegant legible Korean sans-serif typography with regular/medium weight body and semibold headings. NO gradients, NO shadows, NO 3D, NO bevels, NO colorful server stacks, NO oversized blue numbered circles, NO dense arrows in each cell, NO decorative browser chrome. Keep outer margins at least 80px, generous whitespace and precise grid alignment. No watermarks.
+
+HEADER, LEFT ALIGNED, spacious:
+Title "Nginx의 6가지 역할"
+Subtitle "웹 서비스의 입구에서 요청과 응답을 관리합니다"
+Title should be refined and moderately sized (approximately 60px), not huge or ultra-bold. Subtitle approximately 28px.
+
+MAIN GRID:
+2 equal columns and 3 equal rows. Thin very light gray horizontal divider lines separate rows; a faint central vertical rule is acceptable. NO heavy card backgrounds. Each cell contains one simple crisp navy/teal monoline icon on the left and a text group on the right. Small understated teal number above or beside the role name. Use exactly these headings and one-line summaries:
+
+Top-left:
+01
+"웹 서버"
+"HTML · CSS · 이미지 제공"
+Icon: simple document outline with tiny code brackets.
+
+Top-right:
+02
+"역방향 프록시"
+"내부 앱으로 요청 중계"
+Icon: a simple small gateway outline with a straight passing arrow, no tiny labels.
+
+Middle-left:
+03
+"TLS 처리"
+"인증서 제시 · HTTPS 암호화"
+Icon: simple shield and small check, representing server certificate and encrypted connection, NOT user login.
+
+Middle-right:
+04
+"리다이렉트"
+"새 주소로 재접속 안내"
+Icon: clean bent directional arrow between two short lines.
+
+Bottom-left:
+05
+"로드 밸런서"
+"여러 서버에 요청 분산"
+Icon: one node branching to three evenly spaced nodes.
+
+Bottom-right:
+06
+"캐시"
+"조건에 맞는 저장 응답 재사용"
+Icon: simple storage rectangle with a small circular reuse arrow.
+
+Role headings around 36px, summary around 26px. NO extra lines of copy or microtext.
+
+BOTTOM BAND:
+A narrow very pale teal rounded band with plenty of padding, below the six cells.
+Small heading aligned left "이 챗봇에서의 요청 흐름".
+One centered minimal flow line with plain text nodes and straight teal arrows:
+"브라우저" → "Nginx" → "FastAPI"
+Above the first arrow label "HTTPS"; above second arrow label "내부 HTTP".
+No illustration icons in this bottom band; use pure typography and clean lines.
+A smaller final line below the band, dark muted text:
+"Nginx 담당: TLS 처리 · 역방향 프록시 · HTTP→HTTPS 리다이렉트"
+
+This must look like a carefully typeset infographic from a professional technical publication. Prioritize spacing, clarity, precise Korean text, restrained weights, and consistency. All six roles and bottom flow must fit with ample breathing room. The attached reference is CONTENT ONLY: discard its busy styling completely.

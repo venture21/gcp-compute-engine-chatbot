@@ -1,0 +1,11 @@
+# gcloud run deploy --source에서 업로드할 파일만 허용한다.
+**
+!.gcloudignore
+!.dockerignore
+!Dockerfile
+!requirements.txt
+!server.py
+!public/
+!public/index.html
+!public/app.js
+!public/style.css

@@ -1,0 +1,48 @@
+Tool: built-in image_gen.imagegen (generation, then header readability edit)
+Final image: nginx-roles.png
+Usage: embedded into HTTP에서_HTTPS로_ComputeEngine_챗봇_상세가이드.html
+
+Generation prompt:
+Create a NEW Korean educational infographic raster image, landscape 1536x1024, for a beginner's HTML guide about Nginx and a Compute Engine chatbot. Match a clean professional document: white/pale blue background, dark navy #102340 headings, blue #205dba and teal #147c78 accents, generous whitespace, very crisp readable Korean typography. Flat vector-like icons, no photographic elements, no watermark, no external logos.
+
+Main title: "Nginx의 역할과 하는 일"
+Subtitle: "설정에 따라 필요한 기능을 선택해 사용합니다"
+
+Design SIX equal rounded cards in a spacious 3-column, 2-row grid, numbered 01 through 06. Each card has a distinct simple network/file icon or tiny clear diagram, bold Korean role title, and the exact two short explanatory lines listed below. Use large type, avoid dense small print. All the text must be accurate and legible. Do not visually imply all six roles are automatically enabled.
+
+Top row:
+01 title "웹 서버"
+Icon: browser receiving HTML, CSS and image file icons from a server.
+Two lines: "HTML · CSS · 이미지 등" / "정적 파일을 직접 제공합니다"
+
+02 title "역방향 프록시"
+Diagram: browser → Nginx → application server, with subtle return arrow underneath.
+Two lines: "사용자의 요청을 내부 앱에 전달하고" / "앱의 응답을 돌려줍니다"
+
+03 title "TLS 처리"
+Icon: browser and Nginx with encrypted link/padlock and certificate.
+Two lines: "인증서를 제시하고" / "HTTPS 암호화 통신을 처리합니다"
+Do NOT suggest Nginx verifies user login or that Nginx checks its own certificate; the browser verifies the server's certificate.
+
+Bottom row:
+04 title "리다이렉트"
+Icon: browser with HTTP → HTTPS visible.
+Two lines: "브라우저에 새 주소를 알려" / "다시 접속하도록 안내합니다"
+
+05 title "로드 밸런서"
+Diagram: one input → Nginx → three backend servers, split arrows.
+Two lines: "여러 애플리케이션 서버로" / "요청을 나누어 전달합니다"
+
+06 title "캐시"
+Icon: stored response in a small cache box with quick-return arrow to browser.
+Two lines: "재사용 가능한 응답을 저장하고" / "조건이 맞으면 빠르게 제공합니다"
+
+Bottom full-width teal lightly tinted strip, with sufficient padding and large text:
+"현재 챗봇: 역방향 프록시 + TLS 처리 + 리다이렉트"
+Below that, one readable simple line showing this specific deployment:
+"브라우저 ─ HTTPS ─ Nginx ─ 내부 HTTP ─ FastAPI"
+Use directional arrows on the last line pointing left-to-right for request flow if more clear, and no extra claims about features currently enabled.
+No fine-print footer or redundant text. All six cards must be fully inside the canvas with no clipping.
+
+Edit prompt:
+Edit this existing Korean Nginx roles infographic. Make ONE targeted correction: the dark gray/navy gradient behind the very top main title and subtitle makes them hard to read. Replace that entire top header background (approximately y=0 through y=125) with clean solid WHITE, keeping the main title 'Nginx의 역할과 하는 일' in crisp DARK NAVY and the subtitle '설정에 따라 필요한 기능을 선택해 사용합니다' in clearly readable BLUE. Remove all shadows/gradient darkening on the header. Maintain generous top margin so title is not clipped. Preserve all six diagram cards, ALL their wording, icons, arrows, numbering, bottom strip, and the 1536x1024 landscape layout exactly as they are. Do not redesign the content or introduce new text. Make the whole image clean and suitable for a white-background educational HTML guide.

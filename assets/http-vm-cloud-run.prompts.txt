@@ -1,0 +1,62 @@
+Tool: built-in image_gen.imagegen
+Images: http-vm-architecture.png, cloud-run-architecture.png
+Usage: embedded into HTTP에서_HTTPS로_ComputeEngine_챗봇_상세가이드.html
+
+HTTP VM prompt:
+Create a polished Korean beginner-friendly technical architecture infographic, landscape 1536x1024. Match a coherent educational HTML guide: pure white background, navy #102340 headings, pale blue rounded system groups, teal #147c78 application/server accents, vivid blue arrows, muted slate secondary text. Clear colored filled browser/server/cloud illustrations like a clean textbook network diagram, consistent outlines, generous spacing, aligned boxes. No heavy shadows, no dark gradients, no photorealism, no watermark or unofficial corporate logos. Korean labels must be spelled correctly and highly legible; avoid fine-print text. The picture is a CONCEPTUAL architecture, not a screenshot or claim that a deployment was performed. Separate main request flow from supporting configuration. Use short labels and ample whitespace.
+
+TITLE: "HTTP로 VM에 직접 접속하는 구조"
+SUBTITLE: "HTTPS 전환 전 · 외부 IP와 3000번 포트로 접속"
+
+MAIN DIAGRAM, centered across the canvas with four distinct stages, left to right:
+1. Outside all cloud/system boundaries, a browser/laptop icon labeled "사용자 브라우저". Above/below it clearly show "http://VM외부IP:3000".
+2. A slim stylized network gate icon labeled "VPC 방화벽" with smaller text "TCP 3000 허용". This is a packet filter, NOT an HTTP proxy or TLS gateway.
+3. A larger pale blue rounded boundary titled "Compute Engine VM". Inside it a teal server/application card titled "FastAPI · Uvicorn", label "0.0.0.0:3000", and two short feature lines "웹 UI 제공" and "채팅 API 처리". No Nginx, no HTTPS certificate, and no TLS proxy inside this VM.
+4. A separate cloud service icon to the right, outside the VM, labeled "Gemini API".
+
+Blue solid request arrows:
+Browser → firewall → VM application. Put "HTTP · 3000" prominently over the browser/firewall/app route. The HTTP route should visually continue through the firewall rather than suggesting a second application relay.
+VM application → Gemini API, labeled "HTTPS".
+Gray dashed response arrows below the corresponding paths, pointing Gemini → app → firewall → browser, with simple label "응답". Ensure arrowheads point correctly and return arrows don't intersect labels.
+
+Below main diagram: three equal neat small explanation cards:
+"01  브라우저" / "VM의 외부 IP와 포트로 요청"
+"02  VM의 챗봇" / "화면 제공 · 질문 처리 · API 호출"
+"03  Gemini API" / "모델이 답변을 생성"
+
+BOTTOM pale warm-neutral strip, tasteful and not alarmist:
+"브라우저 ↔ VM 구간은 HTTP이므로 암호화되지 않습니다."
+A second shorter line:
+"VM ↔ Gemini API 구간은 HTTPS를 사용합니다."
+
+Accuracy constraints: never draw a padlock over the browser-to-VM path. Never imply the firewall encrypts anything. Never show the browser directly calling Gemini. 0.0.0.0 is a listener configuration, while the browser URL uses VM external IP; keep these texts in their respective nodes. Show port 3000 only for the VM listener and firewall, not port 80 or 443 as VM inbound. Preserve spacious layout and avoid excessive tiny detail.
+
+Cloud Run prompt:
+Create a polished Korean beginner-friendly technical architecture infographic, landscape 1536x1024. Match a coherent educational HTML guide: pure white background, navy #102340 headings, pale blue rounded system groups, teal #147c78 application/server accents, vivid blue arrows, muted slate secondary text. Clear colored filled browser/server/cloud illustrations like a clean textbook network diagram, consistent outlines, generous spacing, aligned boxes. No heavy shadows, no dark gradients, no photorealism, no watermark or unofficial corporate logos. Korean labels must be spelled correctly and highly legible; avoid fine-print text. The picture is a CONCEPTUAL architecture, not a screenshot or claim that a deployment was performed. Separate main request flow from supporting configuration. Use short labels and ample whitespace.
+
+TITLE: "Cloud Run으로 구현한 챗봇 구조"
+SUBTITLE: "Cloud Run이 HTTPS를 처리하고 컨테이너로 요청을 전달합니다"
+
+MAIN DIAGRAM with four conceptual stages left to right:
+1. User browser icon outside platform boundary, label "사용자 브라우저", small "Cloud Run 서비스 URL".
+2 and 3 are inside one large pale blue rounded boundary titled "Cloud Run 서비스":
+2. A gateway icon with certificate/lock labeled "관리형 HTTPS 입구", with short sublabels "TLS 처리" and "IAM 접근 설정".
+3. A teal application/container card labeled "FastAPI 컨테이너", with "0.0.0.0:$PORT" and "기본 PORT=8080". Small task text "웹 UI · 채팅 API". No Nginx or Certbot anywhere in the container.
+4. On far right, outside Cloud Run service boundary, a cloud icon labeled "Gemini API".
+
+Main blue request arrows:
+Browser → Cloud Run managed entry: "HTTPS · 443" with small lock on this connection.
+Managed entry → FastAPI container: "HTTP · 8080". This represents the container's unencrypted HTTP input after Cloud Run handles TLS, not a publicly exposed port.
+FastAPI container → Gemini API: "HTTPS".
+Gray dashed response arrows travel back through the same components in reverse order, labeled "응답"; no browser-to-Gemini direct arrow.
+
+SUPPORTING BLOCK below the container:
+A separate box labeled "Secret Manager", containing the identifier "GEMINI_API_KEY" (no value).
+One neat upward dashed arrow into FastAPI container, labeled "시작 시 환경변수 주입".
+Another small unobtrusive note near the service boundary: "Cloud Run이 인스턴스 실행·확장을 관리".
+
+BOTTOM INFORMATION BAND, two short clearly legible lines:
+"앱은 요청 처리에 집중하고, HTTPS와 인스턴스 관리는 Cloud Run이 담당합니다."
+"저장소 배포 기본값: IAM 인증 필요"
+
+Technical constraints: show no VM external IP in this image; no public access to :8080; no fake application login UI. Never imply service is public by default or that TLS replaces IAM. No VPC firewall rule for 8080. The Secret Manager arrow is a startup configuration path, not a per-request browser connection. Explicitly separate the secret/config arrow from request arrows. This describes the source implementation and deployment configuration; do not claim an actual live service or invented URL.

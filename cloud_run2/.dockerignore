@@ -1,0 +1,9 @@
+# 런타임 파일만 허용하여 .env, 키, 로그, 가상환경이 이미지에 포함되지 않게 한다.
+**
+!Dockerfile
+!requirements.txt
+!server.py
+!public/
+!public/index.html
+!public/app.js
+!public/style.css

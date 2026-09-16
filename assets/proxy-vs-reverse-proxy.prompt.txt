@@ -1,0 +1,29 @@
+Tool: built-in image_gen.imagegen
+Output: proxy-vs-reverse-proxy.png
+Usage: embedded into HTTP에서_HTTPS로_ComputeEngine_챗봇_상세가이드.html
+
+Prompt:
+Create a polished Korean educational infographic image to insert into an existing beginner's HTML guide about HTTPS on Google Compute Engine. Landscape 1536x1024. White / very pale blue background, dark navy #102340 typography, blue #205dba for forward proxy, teal #147c78 for reverse proxy. Flat vector-like professional editorial illustration, crisp diagram shapes and large accurately rendered Korean text, generous whitespace, clean geometric browser/computer/server icons. No photographic texture, no gradients distracting from labels, no brand logos, no watermark. This is a NEW raster image.
+
+Main title at top: "프록시와 역방향 프록시"
+Subtitle: "누구를 대신하는지가 다릅니다"
+
+Two vertically stacked full-width rounded panels with matching THREE-COLUMN left-to-right layouts. Each panel must contain all of the three labeled nodes and short request arrows to the right and distinct dashed response arrows pointing left. Both types use the SAME direction of request flow; reverse does NOT mean reversing traffic.
+
+TOP PANEL:
+Heading "01  포워드 프록시" and small English "Forward Proxy".
+Three columns: left icon group of two laptops labeled "사용자", middle single intermediary server labeled "포워드 프록시", right group of two web servers labeled "외부 웹 서버".
+Draw a very light blue dashed boundary enclosing only the LEFT and MIDDLE columns. Boundary label "사용자 측 네트워크". The right external web server group MUST be outside this boundary.
+Blue solid arrows connect 사용자 → 포워드 프록시 → 외부 웹 서버, clearly labeled "요청". Gray dashed arrows beneath return 외부 웹 서버 → 포워드 프록시 → 사용자, labeled "응답". Keep arrowheads separate from text.
+One bottom sentence in this panel, large enough to read: "사용자를 대신해 외부 사이트에 요청합니다."
+Small use-case badge: "예: 회사의 인터넷 접근 관리"
+
+BOTTOM PANEL:
+Heading "02  역방향 프록시" and small English "Reverse Proxy".
+Three columns: left group of two laptops labeled "외부 사용자", middle intermediary server labeled "역방향 프록시", right group of app servers labeled "내부 웹 서버".
+Draw a very light teal dashed boundary enclosing only the MIDDLE and RIGHT columns. Boundary label "서비스 운영자 측 네트워크". The left external users MUST be outside this boundary.
+Teal solid arrows connect 외부 사용자 → 역방향 프록시 → 내부 웹 서버, clearly labeled "요청". Gray dashed arrows beneath return 내부 웹 서버 → 역방향 프록시 → 외부 사용자, labeled "응답".
+One bottom sentence in this panel: "서버를 대신해 사용자의 요청을 받습니다."
+Small use-case badge: "이 가이드: Nginx → FastAPI"
+
+Do NOT claim proxies always encrypt traffic or guarantee anonymity. Do NOT show padlocks or TLS labels in the generic diagrams; TLS details will be described in surrounding HTML text. No extra small text. Accurate boundary placement is essential. All Korean text must be spelled correctly.
